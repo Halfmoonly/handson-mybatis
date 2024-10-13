@@ -17,7 +17,7 @@ import java.util.Arrays;
  *
  * @slogan: 高于生活，源于生活
  * @Description: TODO
- * @author: smlz
+ * @author: lyflexi
  * @date 2020/5/5 14:04
  */
 public class ProductMapperFactoryBean implements FactoryBean {

@@ -1,7 +1,7 @@
 package org.lyflexi.onspringv2.v2.entity;
 
 /**
- * Created by smlz on 2019/6/17.
+ * Created by lyflexi on 2019/6/17.
  */
 public class AccountInfo {
 

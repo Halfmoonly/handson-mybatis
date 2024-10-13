@@ -12,7 +12,7 @@ import java.util.Set;
  *
  * @slogan: 高于生活，源于生活
  * @Description: 支持扫描接口的bean定义
- * @author: smlz
+ * @author: lyflexi
  * @date 2020/5/5 14:15
  */
 public class TulingClassPathMapperScanner extends ClassPathBeanDefinitionScanner {

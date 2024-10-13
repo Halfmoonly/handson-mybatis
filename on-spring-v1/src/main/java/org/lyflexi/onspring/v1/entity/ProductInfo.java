@@ -1,7 +1,7 @@
 package org.lyflexi.onspring.v1.entity;
 
 /**
- * Created by smlz on 2019/6/23.
+ * Created by lyflexi on 2019/6/23.
  */
 public class ProductInfo {
 
