@@ -1,4 +1,4 @@
-# hands-on-mybatis
+# handson-mybatis
 基于spring手写mybatis，请对spring足够熟悉
 
 # 手写原理
