@@ -7,11 +7,11 @@
         <artifactId>handson-mybatis</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>org.lyflexi</groupId>
-    <artifactId>on-spring-v3</artifactId>
+    <groupId>com.hm</groupId>
+    <artifactId>on-jdbc-v1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>on-spring-v3</name>
-    <description>on-spring-v3</description>
+    <name>on-jdbc-v1</name>
+    <description>on-jdbc-v1</description>
     <url/>
     <licenses>
         <license/>
@@ -30,14 +30,9 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
         </dependency>
     </dependencies>
 

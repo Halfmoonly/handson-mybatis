@@ -9,16 +9,16 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.lyflexi</groupId>
-	<artifactId>hands-on-mybatis</artifactId>
+	<artifactId>handson-mybatis</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>on-spring</name>
 	<description>hands-on-mybatis</description>
 	<packaging>pom</packaging>
 	<modules>
+		<module>on-jdbc-v1</module>
 		<module>on-spring-v1</module>
 		<module>on-spring-v2</module>
 		<module>on-spring-v3</module>
-		<module>on-spring-v4</module>
 	</modules>
 	<url/>
 	<licenses>
@@ -46,6 +46,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.36</version>
 		</dependency>
 	</dependencies>
 

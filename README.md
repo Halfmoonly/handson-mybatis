@@ -1,7 +1,29 @@
 # handson-mybatis
-基于spring手写mybatis，请对spring足够熟悉
+基于spring手写mybatis，请对jdbc，jdk动态代理与spring足够熟悉
 
-# 手写原理
+## 手写原理-jdbc篇
+请朋友们先复习下jdbc的使用方式，[on-jdbc-v1](on-jdbc-v1)
+
+## 手写原理-jdk动态代理
+用户定义的mapper接口没有实现类，这叫做面向接口编程
+
+但是根据Java规范或者是jvm规范，我们无法对未实现的接口进行使用，除非是有“人”帮我们实现了。
+
+实现了什么？实现了jdbc的那一套
+
+由谁来替我们实现了？由jdk动态代理来实现了。
+
+为什么要用动态代理来实现？因为用户想要达到根据动态传入的sql语句（随机），来执行不同的sql
+
+1. 动态代理public static Object newProxyInstance(ClassLoader loader, Class<?>[] interfaces, InvocationHandler h)，它传入了目标接口Mapper.class, 但是需要程序员来实现自定义的InvocationHandler，这里面是真正的干扰逻辑
+2. 定义并实现了MapperInvocationHandler，这里面通过目标mapper接口的自定义注解的解析，动态拼接生成sql与返回值解析，封装了传统jdbc的执行逻辑，
+3. 对于mybatis规范来说，代理类的创建用的是工厂方法模式SqlSessionFactory，因此需要通过SqlSessionFactory来对jdk动态代理再做一层包装
+
+最后，用户使用的时候，直接使用SqlSessionFactory.getMapper(UserMapper.class)来获取代理对象
+
+见测试用例[OnDynamicproxyV1ApplicationTests.java](on-dynamicproxy-v1/src/test/java/com/hm/ondynamicproxyv1/OnDynamicproxyV1ApplicationTests.java)
+
+## 手写原理-spring篇
 1. 首先MyBatis的Mapper接口核心是JDK动态代理
 2. Spring会排除接口,无法注册到IOC容器中
 3. MyBatis 实现了BeanDefinitionRegistryPostProcessor 可以动态注册BeanDefinition
@@ -12,7 +34,7 @@
 
 ![mybatis原理.png](docs/pics/mybatis.png)
 
-# 为什么选择FactoryBean
+### 为什么选择FactoryBean
 要想使用@AutoWired注入xxxMapper代理对象，Spring容器中必须要存在才行, 那么Spring是怎么把不同的Mapper代理对象作为一个bean放入容器中呢？
 
 回顾下，把Bean交给spring容器的方式有哪些？
@@ -42,7 +64,7 @@ mybatis源码采用了factoryBean方式，并结合动态代理创建代理对�
 Proxy.newInstance(ClassLoader loader, Class<?>[] interfaces, InvocationHandler h)
 ```
 
-# spring源码如何为我们实例化factoryBean
+### spring源码如何为我们实例化factoryBean
 
 1. 通过&前缀拼接beanName获取factoryBean对象：Object bean = getBean(FACTORY_BEAN_PREFIX + beanName);
 
@@ -113,7 +135,7 @@ private Object doGetObjectFromFactoryBean(FactoryBean<?> factory, String beanNam
 }
 ```
 
-# 注意事项
+## 注意事项
 注意事项，jdk动态代理要求InvocationHandler中持有的target引用一定是targetClass接口的实现类
 ```java
 Proxy：
