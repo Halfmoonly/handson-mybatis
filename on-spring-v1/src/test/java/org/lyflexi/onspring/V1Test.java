@@ -16,7 +16,8 @@ class V1Test {
 				= new AnnotationConfigApplicationContext(SpringMybatisConfig.class);
 
 
-		//Spring默认的包扫描@ComponentScan规则会过滤掉接口、抽象类，因此无法创建accountMapper
+		//Spring默认的包扫描@ComponentScan规则会过滤掉接口、抽象类，因此无法创建accountMapper，因此下述代码执行报错
+		//org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'accountMapper' available
 		AccountMapper accountMapper = (AccountMapper) context.getBean("accountMapper");
 		accountMapper.qryById("11111");
 

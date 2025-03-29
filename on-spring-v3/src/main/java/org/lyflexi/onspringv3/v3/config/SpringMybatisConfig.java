@@ -1,10 +1,8 @@
 package org.lyflexi.onspringv3.v3.config;
 
 import org.lyflexi.onspringv3.v3.anno.EnableMapperScanner;
-import org.lyflexi.onspringv3.v3.compent.TulingMapperRegister;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
 
 /**
  * [来个全套]
