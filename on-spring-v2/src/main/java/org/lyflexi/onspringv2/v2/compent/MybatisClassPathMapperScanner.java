@@ -1,4 +1,4 @@
-package org.lyflexi.onspringv3.v3.compent;
+package org.lyflexi.onspringv2.v2.compent;
 
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
@@ -15,13 +15,14 @@ import java.util.Set;
  * @author: lyflexi
  * @date 2020/5/5 14:15
  */
-public class TulingClassPathMapperScanner extends ClassPathBeanDefinitionScanner {
 
-	public TulingClassPathMapperScanner(BeanDefinitionRegistry registry) {
+public class MybatisClassPathMapperScanner extends ClassPathBeanDefinitionScanner {
+
+	public MybatisClassPathMapperScanner(BeanDefinitionRegistry registry) {
 		super(registry);
 	}
 
-	//bean定义类型是接口的 可以添加到BeanDefinitionMap中
+	//重写包扫描规则，支持bean定义类型是接口的 可以添加到BeanDefinitionMap中
 	@Override
 	protected boolean isCandidateComponent(AnnotatedBeanDefinition beanDefinition) {
 		return beanDefinition.getMetadata().isInterface();
@@ -33,3 +34,5 @@ public class TulingClassPathMapperScanner extends ClassPathBeanDefinitionScanner
 		return super.doScan(basePackages);
 	}
 }
+
+

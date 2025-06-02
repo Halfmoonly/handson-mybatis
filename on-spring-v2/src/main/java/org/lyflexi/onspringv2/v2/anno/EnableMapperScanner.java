@@ -1,6 +1,6 @@
 package org.lyflexi.onspringv2.v2.anno;
 
-import org.lyflexi.onspringv2.v2.compent.TulingImportBeanDefinitionRegister;
+import org.lyflexi.onspringv2.v2.compent.MybatisImportBeanDefinitionRegister;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.ElementType;
@@ -18,7 +18,7 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Import(value = TulingImportBeanDefinitionRegister.class)
+@Import(value = MybatisImportBeanDefinitionRegister.class)
 public @interface EnableMapperScanner {
 
 	String basePackage();

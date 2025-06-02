@@ -1,14 +1,12 @@
 package org.lyflexi.onspringv3.v3.compent;
 
-import org.lyflexi.onspringv3.v3.anno.EnableMapperScanner;
-import org.lyflexi.onspringv3.v3.factorybean.TulingMapperFactorybean;
+import org.lyflexi.onspringv3.v3.factorybean.Brush4JMapperFactorybean;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
-import org.springframework.core.annotation.Order;
 import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.core.type.classreading.MetadataReaderFactory;
 import org.springframework.core.type.filter.TypeFilter;
@@ -24,20 +22,20 @@ import java.util.Set;
  * @author: lyflexi
  * @date 2020/5/5 15:12
  */
-public class TulingMapperRegister implements BeanDefinitionRegistryPostProcessor {
+public class MybatisMapperRegister implements BeanDefinitionRegistryPostProcessor {
 
     private String basePackage;
     // 提供setter方法
     public void setBasePackage(String basePackage) {
         this.basePackage = basePackage;
     }
-    private static Class targetClass = TulingMapperFactorybean.class;
+    private static Class targetClass = Brush4JMapperFactorybean.class;
 
 
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
         //扫描bean定义
-        TulingClassPathMapperScanner mapperScanner = new TulingClassPathMapperScanner(registry);
+        MybatisClassPathMapperScanner mapperScanner = new MybatisClassPathMapperScanner(registry);
 
         mapperScanner.addIncludeFilter(new TypeFilter() {
             @Override

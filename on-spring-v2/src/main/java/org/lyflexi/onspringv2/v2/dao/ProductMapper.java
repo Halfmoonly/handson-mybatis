@@ -1,9 +1,8 @@
 package org.lyflexi.onspringv2.v2.dao;
 
 
-import org.lyflexi.onspringv2.v2.anno.TulingSelect;
+import org.lyflexi.onspringv2.v2.anno.SqlSelect;
 import org.lyflexi.onspringv2.v2.entity.ProductInfo;
-import org.springframework.stereotype.Component;
 
 /**
  * [来个全套]
@@ -16,6 +15,6 @@ import org.springframework.stereotype.Component;
 
 public interface ProductMapper {
 
-	@TulingSelect(value = "select * from product_info where product_id=?")
+	@SqlSelect(value = "select * from product_info where product_id=?")
 	ProductInfo qryProductInfoById(Integer productId);
 }

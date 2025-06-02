@@ -1,7 +1,7 @@
 package org.lyflexi.onspringv3.v3.dao;
 
 
-import org.lyflexi.onspringv3.v3.anno.TulingSelect;
+import org.lyflexi.onspringv3.v3.anno.SqlSelect;
 import org.lyflexi.onspringv3.v3.entity.AccountInfo;
 
 /**
@@ -15,6 +15,6 @@ import org.lyflexi.onspringv3.v3.entity.AccountInfo;
 
 public interface AccountMapper {
 
-	@TulingSelect(value = "select * from account_info where account_id=?")
+	@SqlSelect(value = "select * from account_info where account_id=?")
 	AccountInfo qryAccount(Integer accountId);
 }

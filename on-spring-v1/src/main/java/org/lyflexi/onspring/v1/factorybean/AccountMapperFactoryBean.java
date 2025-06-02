@@ -1,7 +1,7 @@
 package org.lyflexi.onspring.v1.factorybean;
 
 
-import org.lyflexi.onspring.v1.anno.TulingSelect;
+import org.lyflexi.onspring.v1.anno.SqlSelect;
 import org.lyflexi.onspring.v1.dao.AccountMapper;
 import org.lyflexi.onspring.v1.entity.AccountInfo;
 import org.springframework.beans.factory.FactoryBean;
@@ -52,8 +52,8 @@ class AccountMapperProxy implements InvocationHandler {
 			return method.invoke(this, args);
 		}
 
-		TulingSelect tulingSelect = method.getAnnotation(TulingSelect.class);
-		String parseSql = tulingSelect.value();
+		SqlSelect sqlSelect = method.getAnnotation(SqlSelect.class);
+		String parseSql = sqlSelect.value();
 		System.out.println("解析业务sql:"+parseSql+"入参:"+Arrays.asList(args));
 
 		//模拟查询数据库返回

@@ -2,7 +2,7 @@ package org.lyflexi.onspringv2.v2.compent;
 
 
 import org.lyflexi.onspringv2.v2.anno.EnableMapperScanner;
-import org.lyflexi.onspringv2.v2.factorybean.TulingMapperFactorybean;
+import org.lyflexi.onspringv2.v2.factorybean.Brush4JMapperFactoryBean;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
@@ -24,9 +24,9 @@ import java.util.Set;
  * @author: lyflexi
  * @date 2020/5/5 14:29
  */
-public class TulingImportBeanDefinitionRegister implements ImportBeanDefinitionRegistrar {
+public class MybatisImportBeanDefinitionRegister implements ImportBeanDefinitionRegistrar {
 
-	private static Class targetClass = TulingMapperFactorybean.class;
+	private static Class targetClass = Brush4JMapperFactoryBean.class;
 
 	@Override
 	public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
@@ -40,7 +40,7 @@ public class TulingImportBeanDefinitionRegister implements ImportBeanDefinitionR
 		String basePackage = attributes.getString("basePackage");
 
 		//扫描bean定义
-		TulingClassPathMapperScanner mapperScanner = new TulingClassPathMapperScanner(registry);
+		MybatisClassPathMapperScanner mapperScanner = new MybatisClassPathMapperScanner(registry);
 
 		mapperScanner.addIncludeFilter(new TypeFilter() {
 			@Override
